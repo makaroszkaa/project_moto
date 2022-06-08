@@ -35,7 +35,7 @@ Unfortunately, while searching for data, I encountered the problem of the lack o
 After opening the manual, I took from it all the variables that presumably affect the type of motorcycle:
 
 
-  |         variables         |
+  | variables   | variables   |
   | ----------- | ----------- |
   | make        | tank_range  |
   | model       | wheel_base  |
@@ -60,7 +60,7 @@ I am downloading all the necessary packages for analysis. From googlesheet, I op
 In the table I see that the variables **drive_train** and **wheel_type** are categorical and contain text values. It is necessary to convert them to numeric values for further processing. Let's check how many varieties of values exist
 in variables:
 
-![](C:/Users/hrypo/Documents/python/project_moto/category.bmp){ width=50%}
+![](./www/category.bmp){ width=50%}
 
 The variable transmission is characterized by two types - **chain** and **shaft**. 
 The wheel_type variable is characterized by two types - **cast** and **spoke**.
@@ -71,13 +71,13 @@ In addition, it can be seen that some variables have the wrong format - **object
 
 Before determining which variables correlate with each other, it is necessary to look at the distribution of variables. Descriptive statistics will help with this. The table shows that almost all variables have a distribution close to normal.  Variation is within the normal range.
 
-![](C:/Users/hrypo/Documents/python/project_moto/describe.bmp){ width=50% }
+![](./www/describe.bmp){ width=50% }
 
 ### _4. Correlation matrix_
 
 The next step in data processing is to see how the variables correlate with each other. Strongly correlated variables give the model the same information, therefore, it is not necessary to use them all for analysis. As a parameter I set the correlation above **+-0.65**. The table shows that variables such as **displacement**, **torque_nm**, **gross_weight**, **fuel_efficiency**, **front_wheel**, **knee_angle**, **pw_ratio**, **shaft**, **cast**, **spoke** have a strong correlation with other variables. For example, **torque_nm** correlates with **power_hp** and **displacement** and we'd better leave **power_hp** as the variable under study because **power** is much easier to understand than **torque** or engine **displacement**. It is also better for us to abandon  **gross_weight** in favor of other more precise variables. **Cast** and **spoke** are categorical variables and they correlate with **ground_clearance**. **Ground_clearance** is a more valuable variable, since it tells us how high the motorcycle is, whether it is possible to ride it off the roads, so we leave it. Thus, I selected variables for the next stage of data processing - standardization.
 
-![](C:/Users/hrypo/Documents/python/project_moto/matrix.png)
+![](./www/matrix.png)
 
 I select the necessary columns for standardization - these are all the remaining uncorrelated variables: **power_hp**, **net_weight**, **load_capacity**, **seat_height**, **fuel_tank**, **tank_range**, **wheel_base**, **ground_clear**, **front_travel**, **rear_wheel**, **rear_travel**, **hip_angle**, **chain**. I perform standardization using the _scikit-learn library_.
 
@@ -87,7 +87,7 @@ After we have brought the data to a general form, we can proceed to classificati
 
 There are many methods for determining the number of clusters - _gap statistical method_, _silhouette method_, _Elbows method_. However, after trying different methods, I settled on the _Elbow method_. He showed me **4** clusters. With the help of the visualization, you can see on the graph how it turned out:
 
-![](C:/Users/hrypo/Documents/python/project_moto/elbow.bmp){ width=50% }
+![](./www/elbow.bmp){ width=50% }
 
 ### _6. Performing clustering by the k-means method_ 
 
@@ -95,11 +95,11 @@ I perform clustering and plot clusters to see the distribution of our data aroun
 
 Let's look at the size and inertia of clusters, the better the clustering effect, the lower the inertia. There are **6** objects in the first cluster; **16** objects in the second cluster, **32** in the third, **10** in the fourth.
 
-![](C:/Users/hrypo/Documents/python/project_moto/k-means.bmp){ width=50% }
+![](./www/k-means.bmp){ width=50% }
 
 I attach clusters to the database to understand which cluster numbers correspond to which objects. Now it is possible to see in which category of clusters which types of motorcycles are present the most:
 
-![](C:/Users/hrypo/Documents/python/project_moto/category_clusters.bmp) 
+![](./www/category_clusters.bmp) 
 
 > + for the first cluster - **sport**;
   + for the second cluster - **adventure**;
