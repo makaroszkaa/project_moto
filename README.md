@@ -110,7 +110,7 @@ I attach clusters to the database to understand which cluster numbers correspond
 
 Thus, we have formed **4** clusters with the names of motorcycle types. In order to find discrepancies in the categories of motorcycles, it is necessary to create a new column - new_category, in which we change the cluster number to the name. It was determined above by the largest type of motorcycles in each cluster.
 
-12 discrepancies were detected during clustering, the results can be seen in the [**table**]().
+12 discrepancies were detected during clustering, the results can be seen in the [**table**](mismatched_types_moto.csv).
 
 Such motorcycle models as: 
 
