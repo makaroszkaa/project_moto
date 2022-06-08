@@ -60,7 +60,7 @@ I am downloading all the necessary packages for analysis. From googlesheet, I op
 In the table I see that the variables **drive_train** and **wheel_type** are categorical and contain text values. It is necessary to convert them to numeric values for further processing. Let's check how many varieties of values exist
 in variables:
 
-![](./www/category.bmp){ width=50%}
+![](./www/category.bmp)
 
 The variable transmission is characterized by two types - **chain** and **shaft**. 
 The wheel_type variable is characterized by two types - **cast** and **spoke**.
@@ -71,7 +71,7 @@ In addition, it can be seen that some variables have the wrong format - **object
 
 Before determining which variables correlate with each other, it is necessary to look at the distribution of variables. Descriptive statistics will help with this. The table shows that almost all variables have a distribution close to normal.  Variation is within the normal range.
 
-![](./www/describe.bmp){ width=50% }
+![](./www/describe.bmp)
 
 ### _4. Correlation matrix_
 
@@ -87,7 +87,7 @@ After we have brought the data to a general form, we can proceed to classificati
 
 There are many methods for determining the number of clusters - _gap statistical method_, _silhouette method_, _Elbows method_. However, after trying different methods, I settled on the _Elbow method_. He showed me **4** clusters. With the help of the visualization, you can see on the graph how it turned out:
 
-![](./www/elbow.bmp){ width=50% }
+![](./www/elbow.bmp)
 
 ### _6. Performing clustering by the k-means method_ 
 
@@ -95,7 +95,7 @@ I perform clustering and plot clusters to see the distribution of our data aroun
 
 Let's look at the size and inertia of clusters, the better the clustering effect, the lower the inertia. There are **6** objects in the first cluster; **16** objects in the second cluster, **32** in the third, **10** in the fourth.
 
-![](./www/k-means.bmp){ width=50% }
+![](./www/k-means.bmp)
 
 I attach clusters to the database to understand which cluster numbers correspond to which objects. Now it is possible to see in which category of clusters which types of motorcycles are present the most:
 
